@@ -4,6 +4,13 @@ $(function () {
   $('.color-mode').click(function(){
     $('.color-mode-icon').toggleClass('active')
     $('body').toggleClass('dark-mode')
+    if($('body').hasClass( "dark-mode" )){
+      console.log("the black mode");
+      $('.navbar').css("background-color", "black");
+    }
+    else{
+      $('.navbar').css("background-color", "white");
+    }
   })
   
   $(document).scroll(function () {
@@ -11,6 +18,7 @@ $(function () {
       $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
     });
   });
+  
   
   // PROJECT CAROUSEL
   $('.owl-carousel').owlCarousel({
