@@ -224,7 +224,7 @@
         </div>
     </section>
 <!-- Contact Section -->
-    <section class="resume py-5 d-lg-flex justify-content-center align-items-center" id="resume"></section>
+    <section class="resume py-5 d-lg-flex justify-content-center align-items-center" id="contact"></section>
     <div class="container">
         <div class="row">
                 <h1 class="contactTitle">Send a Message</h1>
@@ -232,35 +232,36 @@
         <div class="row">
                 <h4 style="margin-left: auto;margin-right: auto;">I'd love to hear from you!</h4>
         </div>
-        <div class="row input-container">
+        <form action="/submitDetails" class="row input-container" method="POST">
                 <div class="col-xs-12 col-md-12 col-sm-12">
                     <div class="styled-input wide">
-                        <input type="text" required />
+                        <input type="text" name="name" required />
                         <label>Name</label> 
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input">
-                        <input type="text" required />
+                        <input type="text" name="email" required />
                         <label>Email</label> 
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input" style="float:right;">
-                        <input type="text" required />
+                        <input type="text" name="phone" required />
                         <label>Phone Number</label> 
                     </div>
                 </div>
                 <div class="col-xs-12 col-md-12 col-sm-12">
                     <div class="styled-input wide">
-                        <textarea required></textarea>
+                        <textarea name="message" required></textarea>
                         <label>Message</label>
                     </div>
                 </div>
                 <div class="ml-lg-auto col-lg-5 col-12">
-                    <a href="#contact" class="btn custom-btn custom-btn-bg custom-btn-link">Send Message</a>
+                    <!-- <a href="#contact" class="btn custom-btn custom-btn-bg custom-btn-link">Send Message</a> -->
+                    <input type="submit" style="width:70%" class="btn custom-btn custom-btn-bg custom-btn-link" value="Send Message">
                 </div>
-        </div>
+        </form>
     </div>
     </section>
     <!-- End of Contact Section -->
@@ -291,7 +292,9 @@
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <!-- <script src="js/script.js"></script> -->
+    <script src="bundle.js"></script>
 
 </body>
 </html>

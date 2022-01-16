@@ -17,6 +17,13 @@ $(function () {
       var $nav = $(".navbar");
       $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
     });
+
+  
+  var update = function() {
+    console.log("data:",JSON.stringify($('form').serializeArray()),JSON.stringify($('form').serialize()),$('form'));
+  };
+  update();
+  $('form').change(update);
   });
   
   
@@ -31,3 +38,42 @@ if(document.body.className.match('dark-mode')){
   console,log("the color");
   $("p").css("color", "red");
 }
+
+function ValidateEmail(input) {
+
+  var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+  if (input.value.match(validRegex)) {
+
+    alert("Valid email address!");
+
+    document.form1.text1.focus();
+
+    return true;
+
+  } else {
+
+    alert("Invalid email address!");
+
+    document.form1.text1.focus();
+
+    return false;
+
+  }
+
+}
+
+function syncScroll(el1, el2) {
+	el1.scrollLeft = el2.scrollLeft;
+}
+
+var scrollStickyTable = document.querySelector('.table-sticky'),
+	scrollStickyTableHeader = document.querySelector(".table-sticky-header");
+
+scrollStickyTable.addEventListener('scroll', function(e) {
+	syncScroll(scrollStickyTableHeader, scrollStickyTable);
+});
+
+scrollStickyTableHeader.addEventListener('scroll', function(e) {
+	syncScroll(scrollStickyTable, scrollStickyTableHeader);
+});
