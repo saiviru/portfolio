@@ -39,29 +39,29 @@ if(document.body.className.match('dark-mode')){
   $("p").css("color", "red");
 }
 
-function ValidateEmail(input) {
+// function ValidateEmail(input) {
 
-  var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+//   var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-  if (input.value.match(validRegex)) {
+//   if (input.value.match(validRegex)) {
 
-    alert("Valid email address!");
+//     alert("Valid email address!");
 
-    document.form1.text1.focus();
+//     document.form1.text1.focus();
 
-    return true;
+//     return true;
 
-  } else {
+//   } else {
 
-    alert("Invalid email address!");
+//     alert("Invalid email address!");
 
-    document.form1.text1.focus();
+//     document.form1.text1.focus();
 
-    return false;
+//     return false;
 
-  }
+//   }
 
-}
+// }
 
 function syncScroll(el1, el2) {
 	el1.scrollLeft = el2.scrollLeft;

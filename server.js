@@ -51,7 +51,8 @@ app.post('/submitDetails', function (req, res) {
     let User=new SaveModel(req.body);
     User.save()
     .then(item=>{
-        res.send("item saved to database");
+        // req.session.message = 'details submitted'; 
+        res.redirect('/');
     })
     .catch(error=>{
         res.status(400).send("unable to save to database",error);
