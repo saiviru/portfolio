@@ -31,11 +31,6 @@ app.use(express.static(path.join(__dirname, '/')));
 //     console.log("this is the middleware");
 // })
 
-app.get('/',(req,res)=>{
-    // res.sendStatus();
-    res.sendFile(path.join(`${__dirname}/index.html`));
-});
-
 app.get('/leads',(req,res)=>{
     // res.sendStatus();
     res.sendFile(path.join(`${__dirname}/leadsContacted.html`));
@@ -62,6 +57,13 @@ app.post('/submitDetails', function (req, res) {
         res.status(400).send("unable to save to database",error);
     })
   })
+
+app.get('/',(req,res)=>{
+    // res.sendStatus();
+    res.sendFile(path.join(`${__dirname}/index.html`));
+});
+
+
 
 
 
