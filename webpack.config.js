@@ -32,7 +32,7 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  entry: ['./js/script.js','./server.js'],
+  entry: ['./js/script.js'],
   target: 'node',
   output: {
     path:  path.resolve(__dirname,"./"),
