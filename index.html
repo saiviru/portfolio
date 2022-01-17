@@ -229,7 +229,7 @@
         </div>
     </section>
 <!-- Contact Section -->
-    <section class="resume py-5 d-lg-flex justify-content-center align-items-center" id="contact"></section>
+    <section class="resume py-5 d-lg-flex justify-content-center align-items-center" id="contact">
     <div class="container">
         <div class="row">
                 <h1 class="contactTitle">Send a Message</h1>
@@ -237,22 +237,22 @@
         <div class="row">
                 <h4 style="margin-left: auto;margin-right: auto;">I'd love to hear from you!</h4>
         </div>
-        <form action="/submitDetails" class="row input-container" method="POST">
+        <form class="row input-container theForm">
                 <div class="col-xs-12 col-md-12 col-sm-12">
                     <div class="styled-input wide">
                         <input type="text" name="name" required />
-                        <label>Name</label> 
+                        <label>Name</label>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input">
-                        <input type="text" name="email" required />
+                        <input type="text" class="emailInput" name="email" required />
                         <label>Email</label> 
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input" style="float:right;">
-                        <input type="text" name="phone" required />
+                        <input type="text" name="phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required />
                         <label>Phone Number</label> 
                     </div>
                 </div>
@@ -264,7 +264,7 @@
                 </div>
                 <div class="ml-lg-auto col-lg-5 col-12">
                     <!-- <a href="#contact" class="btn custom-btn custom-btn-bg custom-btn-link">Send Message</a> -->
-                    <input type="submit" style="width:70%" class="btn custom-btn custom-btn-bg custom-btn-link" value="Send Message">
+                    <input type="submit" style="width:70%" class="btn custom-btn custom-btn-bg custom-btn-link formSubmit" value="Send Message">
                 </div>
         </form>
     </div>

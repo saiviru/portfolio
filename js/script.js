@@ -12,6 +12,52 @@ $(function () {
       $('.navbar').css("background-color", "white");
     }
   })
+
+  $(".formSubmit").click((e)=>{
+    e.preventDefault();
+    var data=$('form').serializeArray();
+    var emailValid=false
+    // console.log("the data",data);
+
+    var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+  if (data[1].value.match(validRegex)) {
+    console.log("the email is valid");
+    // alert("Valid email address!");
+
+    $(".emailInput").focus();
+
+    emailValid=true;
+
+  } else {
+
+    // alert("Invalid email address!");
+
+    // $(".emailInput").focus();
+
+    emailValid=false
+
+  }
+if(emailValid){
+  $.ajax({
+    url: '/submitDetails',
+    type:'POST',
+    data:
+    {
+      name:data[0].value,
+      email:data[1].value,
+      phone:data[2].value,
+      message:data[3].value,
+    },
+    success: function(msg)
+    {
+        alert('Your request has been received!');
+        $('.theForm')[0].reset();
+    }               
+});
+}
+    
+  })
   
   $(document).scroll(function () {
       var $nav = $(".navbar");
