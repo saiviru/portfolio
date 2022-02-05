@@ -14,6 +14,7 @@ td { font-family: 'Avenir Next', 'Segoe UI', 'Lucida Grande', sans-serif; }
   width: 100%;
   padding: 16px;
   padding: 1rem;
+  border-bottom: 2px solid #FFC842; 
 }
 
 .table__heading { border-bottom: 2px solid #FFC842; }
