@@ -20,7 +20,7 @@
               <th class="table__heading">Date</th>
             </tr>
             <tr class="table__row">
-              <td class="table__content" data-heading="Name">Sai Kiran</td>
+              <td class="table__content namess"  data-heading="Name">Sai Kiran</td>
               <td class="table__content" data-heading="Email">saiviru@live.com</td>
               <td class="table__content" data-heading="Phone">7416343790</td>
               <td class="table__content" data-heading="Message">Contact me back at 9897686767</td>
@@ -28,5 +28,18 @@
             </tr>
           </table>
     </section>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        fetch('/getDetails')
+        .then(data => {
+        return data.json();
+        })
+        .then(users => {
+        console.log(users);
+        users.map(user=>{
+        $('.namess').append(user.name);
+        })
+        });
+    </script>
 </body>
 </html>

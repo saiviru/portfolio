@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saiviru Gallery  upload</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.0/css/foundation.min.css" rel="stylesheet" />
+    <link href="//cdn.materialdesignicons.com/1.8.36/css/materialdesignicons.min.css" rel="stylesheet" />
+    <link href="./gallery.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Upload to make changes with saiviru Gallery</h1>
+    <!-- <form id="uploadForm" enctype="multipart/form-data" action="/galleryImageUpload" method="post">   -->
+        <div class="wrapper">
+            <div class="box">
+                <div class="js--image-preview"></div>
+                <div class="upload-options">
+                <label>
+                    <input type="file" class="image-upload" accept="image/*" />
+                    
+
+                </label>
+                </div>
+            </div>
+        </div>
+        <button style="background-color: white;
+                    color: black;
+                    padding:5px;
+                    border: 2px solid #4CAF50; /* Green */" id="addGallery">Add to gallery</button>
+        <!-- </form> -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+        <script>
+            var file;
+            function initImageUpload(box) {
+  let uploadField = box.querySelector('.image-upload');
+
+  uploadField.addEventListener('change', getFile);
+
+  function getFile(e){
+    file = e.currentTarget.files[0];
+    checkType(file);
+  }
+  
+  function previewImage(file){
+    let thumb = box.querySelector('.js--image-preview'),
+        reader = new FileReader();
+
+    reader.onload = function() {
+      thumb.style.backgroundImage = 'url(' + reader.result + ')';
+    }
+    reader.readAsDataURL(file);
+    thumb.className += ' js--no-default';
+  }
+
+  function checkType(file){
+    let imageType = /image.*/;
+    if (!file.type.match(imageType)) {
+      throw 'Datei ist kein Bild';
+    } else if (!file){
+      throw 'Kein Bild gewählt';
+    } else {
+      previewImage(file);
+    }
+  }
+  
+}
+
+document.getElementById("addGallery").addEventListener('click',upload);
+
+function upload(e){
+    e.preventDefault();
+    if(file){
+        console.log("the file to upload:",$("#addGallery"));
+        let formData = new FormData();
+        formData.append("image", file);
+        $.ajax({
+            url: '/galleryImageUpload',
+            type:'POST',
+            headers: {  'Access-Control-Allow-Origin': '*' },
+            processData: false,
+            contentType: false,
+            dataType: 'json',
+            data:formData,
+            success: function(msg)
+            {
+                alert('Your request has been received!');
+                // $('.theForm')[0].reset();
+            }               
+        });
+    }
+    
+}
+
+// initialize box-scope
+var boxes = document.querySelectorAll('.box');
+
+for (let i = 0; i < boxes.length; i++) {
+  let box = boxes[i];
+  initDropEffect(box);
+  initImageUpload(box);
+}
+
+
+
+/// drop-effect
+function initDropEffect(box){
+  let area, drop, areaWidth, areaHeight, maxDistance, dropWidth, dropHeight, x, y;
+  
+  // get clickable area for drop effect
+  area = box.querySelector('.js--image-preview');
+  area.addEventListener('click', fireRipple);
+  
+  function fireRipple(e){
+    area = e.currentTarget
+    // create drop
+    if(!drop){
+      drop = document.createElement('span');
+      drop.className = 'drop';
+      this.appendChild(drop);
+    }
+    // reset animate class
+    drop.className = 'drop';
+    
+    // calculate dimensions of area (longest side)
+    areaWidth = getComputedStyle(this, null).getPropertyValue("width");
+    areaHeight = getComputedStyle(this, null).getPropertyValue("height");
+    maxDistance = Math.max(parseInt(areaWidth, 10), parseInt(areaHeight, 10));
+
+    // set drop dimensions to fill area
+    drop.style.width = maxDistance + 'px';
+    drop.style.height = maxDistance + 'px';
+    
+    // calculate dimensions of drop
+    dropWidth = getComputedStyle(this, null).getPropertyValue("width");
+    dropHeight = getComputedStyle(this, null).getPropertyValue("height");
+    
+    // calculate relative coordinates of click
+    // logic: click coordinates relative to page - parent's position relative to page - half of self height/width to make it controllable from the center
+    x = e.pageX - this.offsetLeft - (parseInt(dropWidth, 10)/2);
+    y = e.pageY - this.offsetTop - (parseInt(dropHeight, 10)/2) - 30;
+    
+    // position drop and animate
+    drop.style.top = y + 'px';
+    drop.style.left = x + 'px';
+    drop.className += ' animate';
+    e.stopPropagation();
+    
+  }
+}
+
+        </script>
+</body>
+</html>

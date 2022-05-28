@@ -57,7 +57,11 @@ if(emailValid){
 });
 }
     
-  })
+  });
+
+  callGalleryUpload(){
+    
+  }
   
   $(document).scroll(function () {
       var $nav = $(".navbar");
