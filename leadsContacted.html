@@ -6,26 +6,29 @@
     <title>Contacted Leads - Saiviru</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    
     <link href="./css/leads.css" rel="stylesheet" />
 </head>
 <body>
     <section class="container py-3 py-lg-5">
         <h1 class="text-center pb-3 pb-lg-5">Lead contact details</h1>
-        <table class="table">
+       <div id = "loading"></div>
+        <table id = "employees" class="table">
             <tr>
-              <th class="table__heading">Name</th>
-              <th class="table__heading">Email</th>
-              <th class="table__heading">Phone</th>
-              <th class="table__heading">Message</th>
-              <th class="table__heading">Date</th>
+              <th id = "name" class="table__heading">Name</th>
+              <th id = "email" class="table__heading">Email</th>
+              <th id = "phone" class="table__heading">Phone</th>
+              <th id ="message" class="table__heading">Message</th>
+              <th id = "date" class="table__heading">Date</th>
             </tr>
-            <tr class="table__row">
-              <td class="table__content namess"  data-heading="Name">Sai Kiran</td>
+            <!-- <tr id = "row" class="table__row">
+              <td class="table__content" data-heading="Name">Sai Kiran</td>
               <td class="table__content" data-heading="Email">saiviru@live.com</td>
               <td class="table__content" data-heading="Phone">7416343790</td>
               <td class="table__content" data-heading="Message">Contact me back at 9897686767</td>
               <td class="table__content" data-heading="Date">16-01-2022</td>
-            </tr>
+            </tr> -->
+  
           </table>
     </section>
     <script src="js/jquery-3.3.1.min.js"></script>
@@ -42,4 +45,4 @@
         });
     </script>
 </body>
-</html>
+</html>2
