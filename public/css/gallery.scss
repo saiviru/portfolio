@@ -206,6 +206,10 @@ h1 {
 .box {
   display: block;
   min-width: 300px;
+  width: 10%;
+  // padding-top: 15px;
+  padding-bottom: -30px;
+  padding-right: 30px;
   height: 300px;
   margin: 10px;
   background-color: white;

@@ -17,6 +17,8 @@ mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopo
 // app.use('/', createProxyMiddleware({ target: 'http://localhost:3011', changeOrigin: true }));
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+app.use(express.static(__dirname + '/public'));
+console.log('the dir name:',__dirname);
 //Define a schema
 // var Schema = _Schema;
 const Schema = mongoose.Schema;
@@ -112,7 +114,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/leads',(req,res)=>{
     // res.sendStatus();
-    res.sendFile(join(`/leadsContacted.html`));
+    res.sendFile(path.join(`${__dirname}/leadsContacted.html`));
+});
+
+app.get('/gallery',(req,res)=>{
+    res.sendFile(path.join(`${__dirname}/gallery.html`));
+});
+
+app.get('/galleryUpload',(req,res)=>{
+    res.sendFile(path.join(`${__dirname}/galleryUpload.html`));
 });
 
 app.get('/getDetails',(req, res)=>{
@@ -126,6 +136,18 @@ app.get('/getDetails',(req, res)=>{
     })
     .catch(error=>{
         
+    })
+});
+
+app.get('/getImages',(req,res)=>{
+    let imageData=[];
+    SaveImages.find({})
+    .then((data)=>{
+        console.log("data images from db:",data)
+        data.map((one)=>{
+            imageData.push(one);
+        })
+    res.json(imageData);
     })
 })
 
@@ -154,7 +176,7 @@ app.post('/submitImages',(res,req)=>{
 console.log("dir name",__dirname);
 app.get('/',(req,res)=>{
     // res.sendStatus();
-    res.sendFile(__dirname,'/index.html');
+    res.sendFile(path.join(`${__dirname}/index.html`));
 });
 
 app.listen(3011);

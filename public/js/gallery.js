@@ -74,3 +74,26 @@ function cloneCards(count) {
     main.appendChild(card.cloneNode(true));
   }  
 }
+
+let awsurl="https://foodappdata.s3.ap-south-1.amazonaws.com/saiviru/";
+let theRow=document.querySelector(".row");
+
+fetch('/getImages')
+  .then(response => response.json())
+  .then((data) => {
+    for(i in data){
+      console.log("the images:",data[i].image);
+      // if((i+1)%3===0){
+        for(j in data){
+          if(data[j]===data[i]){
+            theRow.innerHTML+='<div class="box"><a href="'+awsurl+data[i].image+'" data-toggle="lightbox" data-gallery="gallery" class="col-md-4"><img src="'+awsurl+data[i].image+'" class="img-fluid rounded js--image-preview"></a></div>';
+          }
+        }
+        
+        
+      // }
+      
+    }
+  }
+    
+    );
