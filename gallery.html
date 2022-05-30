@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saiviru - gallery</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/gallery.css" rel="stylesheet" />
+    <style>
+        .row {
+            margin: 15px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header id="app-header" class="app-header">
+      
+          <div class="background-container">
+            <div id="background-back" class="background"></div>
+            <div id="background-front" class="background"></div>
+          </div>
+      
+          <div class="header-content">
+            <div id="small-toolbar" class="app-toolbar">
+      
+      
+              <div id="small-title" class="small-title">Saiviru gallery</div>     
+      
+            </div>
+      
+            <div id="large-toolbar" class="app-toolbar tall">
+              <div id="large-title" class="large-title">Saiviru Gallery</div>
+            </div>
+          </div>
+        </header>
+        <div class="card">
+            <div class="container">
+                <div class="row">
+                    
+                </div>
+                <!-- <div class="row">
+                    <a href="https://unsplash.it/1200/768.jpg?image=251" data-toggle="lightbox" data-gallery="gallery" class="col-md-4">
+                        <img src="https://unsplash.it/600.jpg?image=251" class="img-fluid rounded">
+                    </a>
+                    <a href="https://unsplash.it/1200/768.jpg?image=252" data-toggle="lightbox" data-gallery="gallery" class="col-md-4">
+                        <img src="https://unsplash.it/600.jpg?image=252" class="img-fluid rounded">
+                    </a>
+                    <a href="https://unsplash.it/1200/768.jpg?image=253" data-toggle="lightbox" data-gallery="gallery" class="col-md-4">
+                        <img src="https://unsplash.it/600.jpg?image=253" class="img-fluid rounded">
+                    </a>
+                </div>
+                <div class="row">
+                    <a href="https://unsplash.it/1200/768.jpg?image=254" data-toggle="lightbox" data-gallery="gallery" class="col-md-4">
+                        <img src="https://unsplash.it/600.jpg?image=254" class="img-fluid rounded">
+                    </a>
+                    <a href="https://unsplash.it/1200/768.jpg?image=255" data-toggle="lightbox" data-gallery="gallery" class="col-md-4">
+                        <img src="https://unsplash.it/600.jpg?image=255" class="img-fluid rounded">
+                    </a>
+                    <a href="https://unsplash.it/1200/768.jpg?image=256" data-toggle="lightbox" data-gallery="gallery" class="col-md-4">
+                        <img src="https://unsplash.it/600.jpg?image=256" class="img-fluid rounded">
+                    </a>
+                </div> -->
+            </div>
+        </div>
+      </main>
+    
+      </div>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+      <script type="text/javascript" src="js/gallery.js"></script>
+      <script>
+          $(document).on("click", '[data-toggle="lightbox"]', function(event) {
+            event.preventDefault();
+            $(this).ekkoLightbox();
+        });
+      </script>
+</body>
+</html>

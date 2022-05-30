@@ -57,7 +57,8 @@ if(emailValid){
 });
 }
     
-  })
+  });
+
   
   $(document).scroll(function () {
       var $nav = $(".navbar");
