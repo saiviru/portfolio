@@ -31,18 +31,93 @@
   
           </table>
     </section>
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script>
-        fetch('/getDetails')
-        .then(data => {
-        return data.json();
-        })
-        .then(users => {
-        console.log(users);
-        users.map(user=>{
-        $('.namess').append(user.name);
-        })
-        });
+    <script >
+      console.log("iam back");
+      console.log("hellooooooooooo")
+      // fetch('/getDetails')
+      //   .then(data => {
+      //   return data.json();
+      //   })
+      //   .then(users => {
+      //   console.log(users);
+
+
+      //   });
+
+
+
+
+        const api_url = 
+      "/getDetails";
+  
+// Defining async function
+async function getapi(url) {
+    
+    // Storing response
+    const response = await fetch(url);
+    
+    // Storing data in form of JSON
+    var data = await response.json();
+    console.log(data);
+    if (response) {
+        hideloader();
+    }
+    show(data);
+    console.log("data");
+}
+// Calling that async function
+getapi(api_url);
+  
+// Function to hide the loader
+function hideloader() {
+    document.getElementById('loading').display = 'none';
+}
+// Function to define innerHTML for HTML table
+function show(data) {
+    let tab = 
+        `<tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Message</th>
+          <th>Date<th>
+         </tr>`;
+    
+    // Loop to access all rows 
+    for (let r of data) {
+        tab += `<tr> 
+    <td>${r.name} </td>
+    <td>${r.email}</td>
+    <td>${r.phone}</td> 
+    <td>${r.message}</td>  
+    <td>${r.date}</td>         
+</tr>`;
+    }
+    // Setting innerHTML as tab variable
+    document.getElementById("employees").innerHTML = tab;
+}
+    //   const api_url = "https://saiviru.in/getDetails'";
+    //  async function loadIntoTable(url, table) {
+    //    const row  = table.querySelector(".table__row");
+    //    const content = table.querySelector(".table__content");
+    //   //  const content = table.querySelector("table__content");
+    //   //  const content = table.querySelector("table__content");
+    //   //  const content = table.querySelector("table__content");
+    //   //  const content = table.querySelector("table__content");
+    //    const response = await fetch(url);
+    //    var data = await response.json();
+
+    //    console.log(data);
+    //  }
+
+    //  loadIntoTable("/getDetails", document.querySelector("employees"));
+
+
+
+
+
+
+
     </script>
 </body>
-</html>2
+</html>
