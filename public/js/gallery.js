@@ -86,7 +86,7 @@ fetch('/getImages')
       // if((i+1)%3===0){
         for(j in data){
           if(data[j]===data[i]){
-            theRow.innerHTML+='<div class="box"><a href="'+awsurl+data[i].image+'" data-toggle="lightbox" data-gallery="gallery" class="col-md-4"><img src="'+awsurl+data[i].image+'" class="img-fluid rounded js--image-preview"></a></div>';
+            theRow.innerHTML+='<div class="box"><a href="'+awsurl+data[i].image+'" data-toggle="lightbox" data-gallery="gallery" class="col-md-4"><img src="'+awsurl+data[i].image+'" alt="saiviru" class="img-fluid rounded js--image-preview"></a></div>';
           }
         }
         
