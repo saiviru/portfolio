@@ -15,7 +15,7 @@ mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopo
 .then(() => console.log(`Database connected successfully`))
   .catch((err) => console.log(err));
 
-app.use('/', createProxyMiddleware({ target: 'https://localhost:3011', changeOrigin: true }));
+app.use('/', createProxyMiddleware({ target: 'http://localhost:3011', changeOrigin: true }));
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 app.use(express.static(__dirname + '/public'));
