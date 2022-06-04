@@ -238,7 +238,7 @@ h1 {
   display: block;
   min-width: 300px;
   width: 10%;
-  padding-top: 15px;
+  padding-bottom: -30px;
   padding-right: 30px;
   height: 300px;
   margin: 10px;
@@ -318,7 +318,6 @@ h1 {
 }
 
 .js--image-preview {
-  height: 225px;
   width: 100%;
   position: relative;
   overflow: hidden;
