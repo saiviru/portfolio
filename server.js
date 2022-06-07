@@ -122,6 +122,10 @@ app.get('/gallery',(req,res)=>{
     res.sendFile(path.join(`${__dirname}/gallery.html`));
 });
 
+app.get('/saiviruimages',(req,res)=>{
+    res.sendFile(path.join(`${__dirname}/saiviruGallery.html`));
+});
+
 app.get('/galleryUpload',(req,res)=>{
     res.sendFile(path.join(`${__dirname}/galleryUpload.html`));
 });
