@@ -2,8 +2,9 @@
   "name": "portfolio",
   "version": "1.0.0",
   "description": "",
-  "main": "script.js",
+  "main": "server.js",
   "private": true,
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
@@ -21,6 +22,10 @@
   },
   "homepage": "https://github.com/saiviru/portfolio#readme",
   "devDependencies": {
+    "@babel/core": "^7.0.0-rc.1",
+    "@babel/preset-env": "^7.0.0-rc.1",
+    "@babel/register": "^7.0.0-rc.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "nodemon": "^2.0.15",
     "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1",
@@ -28,10 +33,29 @@
   },
   "dependencies": {
     "@babel/preset-env": "^7.16.8",
+    "aws-sdk": "^2.1140.0",
     "babel-loader": "^8.2.3",
     "body-parser": "^1.19.1",
     "dotenv": "^11.0.0",
     "express": "^4.17.2",
-    "mongoose": "^6.1.6"
+    "http-proxy-middleware": "^2.0.6",
+    "mongoose": "^6.1.6",
+    "multer": "^1.4.4",
+    "node-fetch": "^3.2.5"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      "transform-es2015-modules-commonjs"
+    ]
   }
 }
