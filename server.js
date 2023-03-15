@@ -2,7 +2,7 @@ import fetch from "node-fetch";
 import {config} from 'dotenv';
 config();
 import express from 'express';
-import path,{ join,dirname } from 'path';
+import path,{ join, dirname } from 'path';
 const app = express();
 import { createProxyMiddleware } from 'http-proxy-middleware';
 import bodyParser from 'body-parser';
